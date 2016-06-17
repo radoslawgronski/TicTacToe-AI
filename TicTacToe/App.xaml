@@ -1,0 +1,58 @@
+﻿<Application x:Class="TicTacToe.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TicTacToe"
+             StartupUri="GUI\MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="PrimaryColor">
+            <SolidColorBrush.Color>
+                <Color A="255" R="0" G="122" B="204" />
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="ContentColor">
+            <SolidColorBrush.Color>
+                <Color A="255" R="241" G="241" B="241" />
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryFontColor">
+            <SolidColorBrush.Color>
+                <Color A="255" R="255" G="255" B="255" />
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="ContentFontColor">
+            <SolidColorBrush.Color>
+                <Color A="255" R="68" G="68" B="68" />
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{StaticResource PrimaryFontColor}" BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1FFFFFFF"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="Gray"/>
+                    <Setter Property="Background" Value="{StaticResource PrimaryFontColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>
